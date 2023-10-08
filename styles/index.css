@@ -1,0 +1,17 @@
+
+    
+
+.btn{
+    display:flex;
+    color: white;
+    background-color: rgb(15, 15, 15);
+    text-decoration:none;
+    margin:50px 20px;
+    display:inline-block;
+    padding:2rem 1rem;
+    border-radius:8px;
+
+}
+.btn:hover{
+    background-color: rgb(29, 28, 28);
+}

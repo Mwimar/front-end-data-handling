@@ -4,14 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/index.css" />
   </head>
   <body>
     <header>
       <h1 id="logo">Eatwell</h1>
       <ul>
-        <li>Browse Restaurants</li>
-        <li>Share a Restaurant</li>
-        <li>About Eatwell</li>
+        <a href="/front/restaurants.html">
+          <li>Browse Restaurants</li>
+        </a>
+
+        <a href="/front/recommend.html">
+          <li>Share a Restaurant</li>
+        </a>
+
+        <a href="/front/about.html">
+          <li>About Eatwell</li>
+        </a>
       </ul>
     </header>
     <main>
@@ -22,9 +32,13 @@
         </p>
       </section>
 
-      <section>
-        <a href="" class="btn">Browse Shared Restaurants</a>
-        <a href="" class="btn">Share Your Favourite Restaurant</a>
+      <section id="other-links">
+        <a href="/front/restaurants.html" class="btn"
+          >Browse Shared Restaurants</a
+        >
+        <a href="/front/recommend.html" class="btn"
+          >Share Your Favourite Restaurant</a
+        >
       </section>
     </main>
   </body>

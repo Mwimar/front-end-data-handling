@@ -4,51 +4,57 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recommend restaurant</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/recommend.css" />
   </head>
   <body>
     <header>
       <h1 id="logo">Eatwell</h1>
       <ul>
-        <li>Browse Restaurants</li>
-        <li>Share a Restaurant</li>
-        <li>About Eatwell</li>
+        <a href=""><li>Browse Restaurants</li></a>
+        <a href=""><li>Share a Restaurant</li></a>
+        <a href=""><li>About Eatwell</li></a>
       </ul>
     </header>
     <main>
       <section>
         <h2>Share Favourite Restaurant</h2>
       </section>
-      <section>
+      <section id="form-section">
         <form>
-          <label for id="restaurant-name">Restaurant Name</label>
-          <input
-            type="text"
-            name="restaurant-name"
-            type="text"
-            id="restaurant-name"
-          />
-
-          <label for id="address">Address</label>
-          <input type="text" name="Address" type="text" id="address" />
-
-          <label for id="restaurant-name">Restaurant Name</label>
-          <input
-            type="text"
-            name="restaurant-name"
-            type="text"
-            id="restaurant-name"
-          />
-
-          <label for id="cuisine-type">Restaurant Name</label>
-          <input
-            type="text"
-            name="cuisine-type"
-            type="text"
-            id="cuisine-type"
-          />
-
-          <label for id="recommendation">Why do you Recommend?</label>
-          <textarea id="recommendation"></textarea>
+          
+              <label for="restaurant-name">Restaurant Name</label>
+              <input
+                type="text"
+                name="restaurant-name"
+                type="text"
+                id="restaurant-name"
+              />
+            
+              <label for="address">Address</label>
+              <input type="text" name="Address" type="text" id="address" />
+            
+              <label for="restaurant-name">Restaurant Name</label>
+              <input
+                type="text"
+                name="restaurant-name"
+                type="text"
+                id="restaurant-name"
+              />
+           
+              <label for="cuisine-type">Restaurant Name</label>
+              <input
+                type="text"
+                name="cuisine-type"
+                type="text"
+                id="cuisine-type"
+              />
+            
+              <label for="recommendation">Why do you Recommend?</label>
+              <textarea id="recommendation" rows="5"></textarea>
+              <button type="submit">Share</button>
+            </li>
+          </ul>
         </form>
       </section>
     </main>

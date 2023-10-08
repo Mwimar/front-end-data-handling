@@ -1,0 +1,13 @@
+form{
+    background-color: rgb(233, 162, 30);
+    width:30rem;
+    padding:1.5rem;
+    margin:1rem;
+    border-radius:10px;
+}
+form input, textarea{
+    display:block;
+    border-radius:5px;
+    font:inherit;
+    }
+

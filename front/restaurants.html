@@ -4,20 +4,47 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Browse Restaurants</title>
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/styles/restaurants.css" />
   </head>
   <body>
     <header>
       <h1 id="logo">Eatwell</h1>
       <ul>
-        <li>Browse Restaurants</li>
-        <li>Share a Restaurant</li>
-        <li>About Eatwell</li>
+        <a href="/front/restaurants.html">
+          <li>Browse Restaurants</li>
+        </a>
+
+        <a href="/front/recommend.html">
+          <li>Share a Restaurant</li>
+        </a>
+
+        <a href="/front/about.html">
+          <li>About Eatwell</li>
+        </a>
       </ul>
     </header>
     <main>
       <section>
         <h1>Recommended Restaurants</h1>
         <p>find your favourite restaurant</p>
+      </section>
+      <section id="restaurants">
+        <ul id="restaurant-list">
+          <li>
+            <article>
+              <h2>Restaurant Title</h2>
+              <div class="restaurant-meta">
+                <p>Mexican</p>
+                <p>Address</p>
+                <p>A short Description</p>
+              </div>
+              <div class="restaurant-action">
+                <a href="">Visit Website</a>
+              </div>
+            </article>
+          </li>
+        </ul>
       </section>
     </main>
   </body>
