@@ -1,6 +1,6 @@
 const express=require('express');
 const app = express();
-app.use(express.urlencoded({extended:false}))
+app.use(express.static('public'));//making files available;
 const fs=require('fs');
 const path = require('path');
 
@@ -21,6 +21,12 @@ app.get('/index', function (req, res) {
 
 app.get('/recommend', function (req, res) {
     const htmlFilePath = path.join(__dirname, 'views', 'recommend.html');
+    res.sendFile(htmlFilePath)
+});
+
+
+app.get('/confirm', function (req, res) {
+    const htmlFilePath = path.join(__dirname, 'views', 'confirm.html');
     res.sendFile(htmlFilePath);
 })
 

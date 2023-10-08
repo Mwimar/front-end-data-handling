@@ -33,6 +33,11 @@ header li{
     margin:0 10px;
 }
 
+
+header a{
+    text-decoration:none;
+}
+
 #logo{
     color:white;
     background-color:orange;
@@ -42,6 +47,7 @@ header li{
     width:120px;
 
 }
+
 
 main{
     width:600px;
