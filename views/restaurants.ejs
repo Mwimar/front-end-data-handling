@@ -28,22 +28,25 @@
       <section>
         <h1>Recommended Restaurants</h1>
         <p>find your favourite restaurant</p>
+        <p>We Found <%= numberOfRestaurants%> Restaurants</p>
       </section>
       <section id="restaurants">
         <ul id="restaurant-list">
-          <li>
+          <% for (const restaurant of restaurants) { %>
+          <li class="restaurant-item">
             <article>
-              <h2>Restaurant Title</h2>
+              <h2><%= restaurant.name%></h2>
               <div class="restaurant-meta">
-                <p>Mexican</p>
-                <p>Address</p>
-                <p>A short Description</p>
+                <p><%= restaurant.address%></p>
+                <p><%= restaurant.cuisine%></p>
+                <p><%= restaurant.description%></p>
               </div>
               <div class="restaurant-action">
-                <a href="">Visit Website</a>
+                <a href="<%= restaurant.website%>">view site</a>
               </div>
             </article>
           </li>
+          <% } %>
         </ul>
       </section>
     </main>

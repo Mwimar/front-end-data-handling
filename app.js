@@ -17,7 +17,15 @@ app.get('/index', function (req, res) {
 
 
 app.get('/restaurants', function (req, res) {
-    res.render('restaurants');
+    const filePath = path.join(__dirname, 'data', 'restaurants.json');
+
+    const fileData = fs.readFileSync(filePath);
+    const storedRestaurants = JSON.parse(fileData);
+
+    res.render('restaurants', {
+        numberOfRestaurants: storedRestaurants.length,
+        restaurants: storedRestaurants,
+    });
 });
 
 app.post('/recommend', function (req, res) {
@@ -39,7 +47,7 @@ app.get('/recommend', function (req, res) {
 
 
 app.get('/confirm', function (req, res) {
-    res.render('/confirm')
+    res.render('confirm')
 })
 
 app.get('/about', function (req, res) {

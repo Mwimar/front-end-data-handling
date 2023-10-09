@@ -1,15 +1,23 @@
 [
   {
-    "restaurant-name": "Kimende",
-    "Address": "Fourth Street",
+    "name": "Kimende",
+    "address": "Nakuru",
     "website": "https://www.kimende.com",
-    "cuisine-type": "Kenyan"
+    "cuisine": "African",
+    "description": "I'ts good"
   },
   {
-    "restaurant-name": "Nasira Spa",
-    "Address": "Nasira",
+    "name": "Eathub",
+    "address": "Rongai",
+    "website": "https://www.eathub.com",
+    "cuisine": "local",
+    "description": "very delicious"
+  },
+  {
+    "name": "Nasira Spa",
+    "address": "Nasira",
     "website": "https://www.nasira.com",
-    "cuisine-type": "African",
-    "description": "Very Nice"
+    "cuisine": "traditional",
+    "description": "serenic"
   }
 ]
