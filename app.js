@@ -1,19 +1,23 @@
-const express=require('express');
-const app = express();
-app.use(express.static('public'));//making files available;
 const fs = require('fs');
 const path = require('path');
 
+const express = require('express');
+
+const app = express();
+
+app.set('views', path.join(__dirname, 'views'));//setting path for viewing templates;
+app.set('view engine', 'ejs');//viewing files as templates with ejs engine package
+app.use(express.static('public'));//making files available;
+
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', function (req, res) {
-    res.send('<h1>Whats Good Niggas</h1>')
+app.get('/index', function (req, res) {
+    res.render('index')
 })
 
 
 app.get('/restaurants', function (req, res) {
-    const htmlFilePath = path.join(__dirname, 'views', 'restaurants.html');
-    res.sendFile(htmlFilePath)
+    res.render('restaurants');
 });
 
 app.post('/recommend', function (req, res) {
@@ -28,26 +32,24 @@ app.post('/recommend', function (req, res) {
     res.redirect('/confirm');
 })
 
-app.get('/index', function (req, res) {
-    const htmlFilePath = path.join(__dirname, 'views', 'index.html');
-    res.sendFile(htmlFilePath);
-})
 
 app.get('/recommend', function (req, res) {
-    const htmlFilePath = path.join(__dirname, 'views', 'recommend.html');
-    res.sendFile(htmlFilePath)
+    res.render('recommend');
 });
 
 
 app.get('/confirm', function (req, res) {
-    const htmlFilePath = path.join(__dirname, 'views', 'confirm.html');
-    res.sendFile(htmlFilePath);
+    res.render('/confirm')
 })
 
 app.get('/about', function (req, res) {
-    const htmlFilePath = path.join(__dirname, 'views', 'about.html');
-    res.sendFile(htmlFilePath);
+    res.render('about'); //alternative for sendFile Method
 })
+
+// app.get('/about', function (req, res) {
+//     const htmlFilePath = path.join(__dirname, 'views', 'about.html');
+//     res.sendFile(htmlFilePath);
+// })
 
 
 

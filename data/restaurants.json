@@ -1,1 +1,15 @@
-[{"restaurant-name":"Kimende","Address":"Fourth Street","website":"https://www.kimende.com","cuisine-type":"Kenyan"}]
+[
+  {
+    "restaurant-name": "Kimende",
+    "Address": "Fourth Street",
+    "website": "https://www.kimende.com",
+    "cuisine-type": "Kenyan"
+  },
+  {
+    "restaurant-name": "Nasira Spa",
+    "Address": "Nasira",
+    "website": "https://www.nasira.com",
+    "cuisine-type": "African",
+    "description": "Very Nice"
+  }
+]
