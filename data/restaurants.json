@@ -19,5 +19,19 @@
     "website": "https://www.nasira.com",
     "cuisine": "traditional",
     "description": "serenic"
+  },
+  {
+    "name": "Kibandasky",
+    "address": "Zimmer",
+    "website": "https://www.zimmer.com",
+    "cuisine": "local",
+    "description": "Iko fiti"
+  },
+  {
+    "name": "Kwa mathe",
+    "address": "Kamkuywa",
+    "website": "https://www.mathe.com",
+    "cuisine": "local",
+    "description": "fiti sana"
   }
 ]

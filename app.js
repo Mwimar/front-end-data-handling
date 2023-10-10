@@ -28,7 +28,7 @@ app.get('/restaurants', function (req, res) {
     });
 });
 
-app.post('/recommend', function (req, res) {
+app.post('/recommend', async function (req, res) {
     const restaurant = req.body;
     const filePath = path.join(__dirname, 'data', 'restaurants.json');
 
@@ -36,9 +36,14 @@ app.post('/recommend', function (req, res) {
     const storedRestaurants = JSON.parse(fileData);
 
     storedRestaurants.push(restaurant);
-    fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+    try {
+        await fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+    
+    } catch (error) {
+        console.error('Error:', error);
+    }
     res.redirect('/confirm');
-})
+    })
 
 
 app.get('/recommend', function (req, res) {
