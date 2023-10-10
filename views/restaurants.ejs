@@ -25,11 +25,13 @@
       </ul>
     </header>
     <main>
-      <section>
-        <h1>Recommended Restaurants</h1>
-        <p>find your favourite restaurant</p>
-        <p>We Found <%= numberOfRestaurants%> Restaurants</p>
-      </section>
+      <h1>Recommended Restaurants</h1>
+      <% if (numberOfRestaurants ===0) { %>
+      <p>None Available - Try Adding</p>
+      <% } else {%>
+      <p>find your favourite restaurant</p>
+      <p>We Found <%= numberOfRestaurants%> Restaurants</p>
+
       <section id="restaurants">
         <ul id="restaurant-list">
           <% for (const restaurant of restaurants) { %>
@@ -48,6 +50,7 @@
           </li>
           <% } %>
         </ul>
+        <% } %>
       </section>
     </main>
   </body>
