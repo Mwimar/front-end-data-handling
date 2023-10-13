@@ -3,8 +3,10 @@ const path = require('path');
 
 const express = require('express');
 const uuid = require('uuid');//adds unique id to objects
+const resData = require('./util/restaurant-data');//to access stated functions
 
 const app = express();
+
 
 app.set('views', path.join(__dirname, 'views'));//setting path for viewing templates;
 app.set('view engine', 'ejs');//viewing files as templates with ejs engine package
@@ -18,10 +20,7 @@ app.get('/index', function (req, res) {
 
 
 app.get('/restaurants', function (req, res) {
-    const filePath = path.join(__dirname, 'data', 'restaurants.json');
-
-    const fileData = fs.readFileSync(filePath);
-    const storedRestaurants = JSON.parse(fileData);
+    const storedRestaurants=resData.getRestaurants();//from require 
 
     res.render('restaurants', {
         numberOfRestaurants: storedRestaurants.length,
@@ -50,14 +49,11 @@ app.get('/restaurants/:id', function (req, res) {
 app.post('/recommend', async function (req, res) {
     const restaurant = req.body;
     restaurant.id = uuid.v4(); //adds a new id to retaurants entered
-    const filePath = path.join(__dirname, 'data', 'restaurants.json');
+    const restaurants = resData.getRestaurants();
 
-    const fileData = fs.readFileSync(filePath);
-    const storedRestaurants = JSON.parse(fileData);
-
-    storedRestaurants.push(restaurant);
+    restaurants.push(restaurant);
     try {
-        await fs.writeFileSync(filePath, JSON.stringify(storedRestaurants));
+        await resData.storeRestaurants(restaurants);
     
     } catch (error) {
         console.error('Error:', error);
@@ -85,7 +81,7 @@ app.get('/about', function (req, res) {
 // })
 
 app.use(function (req, res) {
-    res.status(400).render('404');//addding a method to a method is called chaining;
+    res.status(404).render('404');//addding a method to a method is called chaining;
 });//handles errors in unavailable routes
 
 app.use(function (error,req, res, next) {
