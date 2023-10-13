@@ -3,35 +3,40 @@
     "name": "Kimende",
     "address": "Nakuru",
     "website": "https://www.kimende.com",
-    "cuisine": "African",
-    "description": "I'ts good"
-  },
-  {
-    "name": "Eathub",
-    "address": "Rongai",
-    "website": "https://www.eathub.com",
     "cuisine": "local",
-    "description": "very delicious"
-  },
-  {
-    "name": "Nasira Spa",
-    "address": "Nasira",
-    "website": "https://www.nasira.com",
-    "cuisine": "traditional",
-    "description": "serenic"
-  },
-  {
-    "name": "Kibandasky",
-    "address": "Zimmer",
-    "website": "https://www.zimmer.com",
-    "cuisine": "local",
-    "description": "Iko fiti"
+    "description": "iko sawa",
+    "id": "cfa31634-93d6-48b0-8c7e-4a20b37a9ebb"
   },
   {
     "name": "Kwa mathe",
     "address": "Kamkuywa",
     "website": "https://www.mathe.com",
     "cuisine": "local",
-    "description": "fiti sana"
+    "description": "gooood",
+    "id": "bf086b0f-6517-478e-a55d-fdbe32e2dd65"
+  },
+  {
+    "name": "Eathub",
+    "address": "Zimmer",
+    "website": "https://www.eathub.com",
+    "cuisine": "African",
+    "description": "nice",
+    "id": "3f911f91-cb01-494e-9d3d-48dbaf1bd141"
+  },
+  {
+    "name": "Nasira Spa",
+    "address": "Nasira",
+    "website": "https://www.nasira.com",
+    "cuisine": "traditional",
+    "description": "excellent",
+    "id": "cef7fb93-a6be-4c1e-b4ad-dbff3f63a5cd"
+  },
+  {
+    "name": "Kibandasky",
+    "address": "Zimmer",
+    "website": "https://www.zimmer.com",
+    "cuisine": "kenyan",
+    "description": "good",
+    "id": "58507c34-6d6f-4450-a70e-3bc3c2a2331f"
   }
 ]

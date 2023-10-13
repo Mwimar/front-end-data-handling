@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
+const uuid = require('uuid');
 
 const app = express();
 
@@ -30,11 +31,24 @@ app.get('/restaurants', function (req, res) {
 
 app.get('/restaurants/:id', function (req, res) {
     const restaurantId = req.params.id;
-    res.render('restaurant-detail', { rid: restaurantId });
+
+    const filePath = path.join(__dirname, 'data', 'restaurants.json');
+
+    const fileData = fs.readFileSync(filePath);
+    const storedRestaurants = JSON.parse(fileData);
+
+    for (const restaurant of storedRestaurants) {
+        if (restaurant.id === restaurantId){
+             return res.render('restaurant-detail', { restaurant:restaurant });//last restaurant refers to the function
+           
+        }
+    }
+
 });
 
 app.post('/recommend', async function (req, res) {
     const restaurant = req.body;
+    restaurant.id = uuid.v4(); //adds a new id to retaurants entered
     const filePath = path.join(__dirname, 'data', 'restaurants.json');
 
     const fileData = fs.readFileSync(filePath);
