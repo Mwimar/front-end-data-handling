@@ -85,11 +85,11 @@ app.get('/about', function (req, res) {
 // })
 
 app.use(function (req, res) {
-    res.render('404');
+    res.status(400).render('404');//addding a method to a method is called chaining;
 });//handles errors in unavailable routes
 
 app.use(function (error,req, res, next) {
-    res.render('500')
+    res.status(500).render('500')
 });
 
 app.listen(3000);
