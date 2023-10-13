@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const express = require('express');
-const uuid = require('uuid');
+const uuid = require('uuid');//adds unique id to objects
 
 const app = express();
 
@@ -43,6 +43,7 @@ app.get('/restaurants/:id', function (req, res) {
            
         }
     }
+    res.render('404');
 
 });
 
@@ -83,6 +84,8 @@ app.get('/about', function (req, res) {
 //     res.sendFile(htmlFilePath);
 // })
 
-
+app.use(function (req, res) {
+    res.render('404');
+})
 
 app.listen(3000);
