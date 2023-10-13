@@ -15,8 +15,11 @@ function storeRestaurants(storableRestaurants) {
     fs.writeFileSync(filePath, JSON.stringify(storableRestaurants))
 };
 
-module.exports = {
-    getRestaurants: getRestaurants,
-    storeRestaurants: storeRestaurants
+ module.exports = {
+  getRestaurants,
+ storeRestaurants
 };// to state areas in this file that should be exposed to other files
 // the right side is the key that refers to the called function
+
+// module.exports = getRestaurants;
+// module.exports = storeRestaurants;
