@@ -6,6 +6,8 @@ const uuid = require("uuid"); //adds unique id to objects
 //const resData = require('./util/restaurant-data');//to access stated functions
 const { getRestaurants, storeRestaurants } = require("./util/restaurant-data"); //DESTRUCTURING OBJECTS
 
+const defaultRoutes = require("./routes/default");
+
 const app = express();
 
 app.set("views", path.join(__dirname, "views")); //setting path for viewing templates;
@@ -14,9 +16,7 @@ app.use(express.static("public")); //making files available;
 
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/index", function (req, res) {
-  res.render("index");
-});
+app.use("/", defaultRoutes);
 
 app.get("/restaurants", function (req, res) {
   //const storedRestaurants=resData.getRestaurants();//from require
@@ -62,10 +62,6 @@ app.get("/recommend", function (req, res) {
 
 app.get("/confirm", function (req, res) {
   res.render("confirm");
-});
-
-app.get("/about", function (req, res) {
-  res.render("about"); //alternative for sendFile Method
 });
 
 // app.get('/about', function (req, res) {
