@@ -14,6 +14,10 @@
       <p>find your favourite restaurant</p>
       <p>We Found <%= numberOfRestaurants%> Restaurants</p>
 
+      <form action="/restaurants" method="GET">
+        <input type="hidden" value="<%= nextOrder %>" name="order" />
+        <button class="btn">Change Order</button>
+      </form>
       <section id="restaurants">
         <ul id="restaurant-list">
           <% for (const restaurant of restaurants) { %> <%-

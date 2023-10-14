@@ -8,8 +8,22 @@ router.get("/restaurants", function (req, res) {
   //const storedRestaurants=resData.getRestaurants();//from require
   const storedRestaurants = getRestaurants();
 
+  let order = req.query.order;
+  let nextOrder = "dsc";
+
+  if (order !== "asc" && order !== "dsc") {
+    order = "asc";
+  }
+
+  if (order === "dsc") {
+    nextOrder = "asc";
+  }
+
   storedRestaurants.sort(function (resA, resB) {
-    if (resA.name > resB.name) {
+    if (
+      (order === "asc" && resA.name > resB.name) ||
+      (order === "dsc" && resB.name > resA.name)
+    ) {
       return 1;
     }
     return -1;
@@ -17,6 +31,7 @@ router.get("/restaurants", function (req, res) {
   res.render("restaurants", {
     numberOfRestaurants: storedRestaurants.length,
     restaurants: storedRestaurants,
+    nextOrder: nextOrder,
   });
 });
 
