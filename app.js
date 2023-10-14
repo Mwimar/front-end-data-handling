@@ -1,12 +1,11 @@
-const fs = require("fs");
 const path = require("path");
 
 const express = require("express");
-const uuid = require("uuid"); //adds unique id to objects
+
 //const resData = require('./util/restaurant-data');//to access stated functions
-const { getRestaurants, storeRestaurants } = require("./util/restaurant-data"); //DESTRUCTURING OBJECTS
 
 const defaultRoutes = require("./routes/default");
+const restaurantRoutes = require("./routes/restaurants");
 
 const app = express();
 
@@ -18,51 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/", defaultRoutes);
 
-app.get("/restaurants", function (req, res) {
-  //const storedRestaurants=resData.getRestaurants();//from require
-  const storedRestaurants = getRestaurants();
-  res.render("restaurants", {
-    numberOfRestaurants: storedRestaurants.length,
-    restaurants: storedRestaurants,
-  });
-});
-
-app.get("/restaurants/:id", function (req, res) {
-  const restaurantId = req.params.id;
-
-  const filePath = path.join(__dirname, "data", "restaurants.json");
-
-  const storedRestaurants = getRestaurants();
-
-  for (const restaurant of storedRestaurants) {
-    if (restaurant.id === restaurantId) {
-      return res.render("restaurant-detail", { restaurant: restaurant }); //last restaurant refers to the function
-    }
-  }
-  res.render("404");
-});
-
-app.post("/recommend", async function (req, res) {
-  const restaurant = req.body;
-  restaurant.id = uuid.v4(); //adds a new id to retaurants entered
-  const restaurants = getRestaurants();
-
-  restaurants.push(restaurant);
-  try {
-    await storeRestaurants(restaurants);
-  } catch (error) {
-    console.error("Error:", error);
-  }
-  res.redirect("/confirm");
-});
-
-app.get("/recommend", function (req, res) {
-  res.render("recommend");
-});
-
-app.get("/confirm", function (req, res) {
-  res.render("confirm");
-});
+app.use("/", restaurantRoutes);
 
 // app.get('/about', function (req, res) {
 //     const htmlFilePath = path.join(__dirname, 'views', 'about.html');
